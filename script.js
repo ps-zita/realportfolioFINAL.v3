@@ -119,26 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- Inject CSS into iframes to hide scrollbars ---
-  function injectCssIntoIframe(iframe) {
-    iframe.addEventListener("load", function() {
-      try {
-        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const style = iframeDoc.createElement("style");
-        style.textContent = `
-          html, body {
-            overflow: hidden !important;
-          }
-          ::-webkit-scrollbar {
-            display: none !important;
-          }
-        `;
-        iframeDoc.head.appendChild(style);
-      } catch (error) {
-        console.error("Could not inject CSS into the iframe:", error);
-      }
-    });
-  }
+
 
   // Inject CSS into both modals if iframes are same-origin.
   if (modalIframe) {
