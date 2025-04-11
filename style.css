@@ -1,0 +1,251 @@
+/* Global Styles */
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: auto;
+    background: linear-gradient(135deg, #2a0038, #000033);
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  #main-content {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Faded state when a card is hovered */
+  #main-content.hover-active * {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Ensure hovered card remains at full opacity */
+  #main-content.hover-active .hovering,
+  #main-content.hover-active .hovering * {
+    opacity: 1 !important;
+  }
+  
+  /* Left Panel */
+  #left-panel {
+    position: fixed;
+    top: 100px;
+    left: 400px;
+    max-width: 350px;
+  }
+  #left-panel h1 {
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 48px;
+    margin: 0 0 10px;
+  }
+  #left-panel h3 {
+    font-family: 'Special Gothic Condensed One', sans-serif;
+    font-size: 24px;
+    margin: 10px 0 20px;
+    text-transform: lowercase;
+  }
+  #left-panel p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
+    margin: 0;
+  }
+  
+  /* Right Panel */
+  #right-panel {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    max-width: 600px;
+    padding-right: 40px;
+    text-align: left;
+  }
+  #right-panel p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #ccc;
+  }
+  
+  /* Card Styles */
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    background: none;
+    padding: 20px;
+    width: 600px;
+    transition: background 0.3s, border-color 0.3s, opacity 0.3s;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .card:hover {
+    border-color: cyan;
+    background: rgba(0, 255, 255, 0.3);
+  }
+  .card-text h3 {
+    margin: 0 0 10px;
+    color: #ccc;
+    transition: color 0.3s;
+  }
+  .card-text p {
+    margin: 0;
+    color: #ccc;
+    transition: color 0.3s;
+  }
+  .card:hover .card-text h3 {
+    color: cyan;
+  }
+  .card:hover .card-text p {
+    color: #fff;
+  }
+  
+  /* Tag Styles */
+  .tags {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .tag {
+    display: block;
+    width: 80px;
+    height: 30px;
+  }
+  
+  /* Grain Overlay */
+  #grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  /* Cursor Light */
+  #cursor-light {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    filter: blur(50px);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    transition: top 0.1s, left 0.1s;
+  }
+  
+  /* Modal Styles for sirius black cafe */
+  #iframe-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 20000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  #iframe-modal.show {
+    display: block;
+    opacity: 1;
+  }
+  .mobile-container {
+    position: relative;
+    width: 920px;
+    height: 900px;
+    margin: 5% auto;
+    overflow: hidden;
+  }
+  .mobile-container iframe {
+    width: 39%;
+    height: 86%;
+    position: absolute;
+    left: 32.5%;
+    top: 1.9%;
+    border: 0;
+    transform: scale(0.9);
+    transform-origin: top left;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    scrollbar-width: none;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  .mobile-container iframe::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Modal Styles for aidin murtha voice actor */
+  /* Using a responsive container with viewport units; now 10% smaller than the previous 72vw (set to 65vw) */
+  #aidin-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 21000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  #aidin-modal.show {
+    display: block;
+    opacity: 1;
+  }
+  .aidin-container {
+    position: relative;
+    width: 65vw;  /* Reduced from 72vw to 65vw (~10% smaller) */
+    height: 65vw;
+    max-width: 100%;
+    margin: 5vh auto;
+    overflow: hidden;
+  }
+  .aidin-container iframe {
+    position: absolute;
+    top: -3.5%;
+    right: -10%;
+    width: 120%;
+    height: 67%;
+    border: 0;
+    background-color: #fff;
+    transform: scale(0.8); /* Zoomed out more */
+    transform-origin: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  /* Responsive overlay for aidin modal: studio.png placed above the iframe */
+  .aidin-container .overlay {
+    position: absolute;
+    top: -8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65vw;  /* Match the container size */
+    height: 65vw;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 3; /* Placed above the iframe */
+    transition: opacity 0.3s ease;
+  }
