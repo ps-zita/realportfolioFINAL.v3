@@ -3,196 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <title>ziad!</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    <!-- CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
   </head>
   <body>
-    <!-- Cursor Light -->
+    <!-- Cursor Light (Spotlight) -->
     <div id="cursor-light"></div>
-    
     <div id="main-content">
       <!-- Left Panel -->
       <div id="left-panel">
         <h1>Ziad Taha</h1>
         <h3>uzbeki-egyptian web developer based in melbourne</h3>
-        <p>I build professional, interactive experiences on the web</p>
+        <p>i make websites &amp; romhacks &amp; tools n stuff idk</p>
       </div>
       <!-- Right Panel -->
       <div id="right-panel">
-        <p>
-          Lorem ipsum datum dolor sit amet, consectetur adipiscing elit.
-          Pellentesque et urna nec risus faucibus finibus. Sed non nulla a neque
-          tincidunt hendrerit. Praesent fermentum, nisl in ullamcorper bibendum,
-          quam eros rutrum velit, ut egestas libero nulla et nibh. Integer suscipit
-          dolor ac risus facilisis, at pharetra lacus tempus.
-        </p>
-        <p>
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-          cubilia Curae; Integer tincidunt, urna eget aliquet sollicitudin, orci
-          metus tempus ex, eu fringilla elit dolor at mauris. Donec nec sapien non
-          lectus malesuada consequat, ac pharetra dui tristique. Morbi dignissim
-          dolor sed justo pretium, ac aliquam sem ultrices.
-        </p>
-        <p>
-          Suspendisse potenti. Etiam a pellentesque justo, nec ullamcorper mi.
-          Phasellus vitae mollis erat. Ut in libero fermentum, tincidunt libero sed,
-          vestibulum dolor. Sed euismod, nulla in vehicula dictum, magna sapien
-          malesuada eros, id consequat libero lacus id tortor. Aliquam erat volutpat,
-          suscipit in elit vitae, suscipit blandit ipsum.
-        </p>
-        <!-- Card Buttons -->
-        <div class="card" id="card-iframe">
-          <div class="tags">
-            <svg class="tag" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="mask-html">
-                  <rect width="80" height="30" fill="white" rx="3" ry="3" />
-                  <text x="50%" y="50%" fill="black" font-family="Roboto" 
-                    font-size="16" text-anchor="middle" dominant-baseline="middle">
-                    HTML
-                  </text>
-                </mask>
-              </defs>
-              <rect width="80" height="30" fill="cyan" mask="url(#mask-html)" rx="7" ry="7" />
-            </svg>
-            <svg class="tag" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="mask-css">
-                  <rect width="80" height="30" fill="white" rx="7" ry="7" />
-                  <text x="50%" y="50%" fill="black" font-family="Roboto" 
-                    font-size="16" text-anchor="middle" dominant-baseline="middle">
-                    CSS
-                  </text>
-                </mask>
-              </defs>
-              <rect width="80" height="30" fill="cyan" mask="url(#mask-css)" rx="7" ry="7" />
-            </svg>
-            <svg class="tag" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="mask-js">
-                  <rect width="80" height="30" fill="white" rx="3" ry="3" />
-                  <text x="50%" y="50%" fill="black" font-family="Roboto" 
-                    font-size="16" text-anchor="middle" dominant-baseline="middle">
-                    JS
-                  </text>
-                </mask>
-              </defs>
-              <rect width="80" height="30" fill="cyan" mask="url(#mask-js)" rx="7" ry="7" />
-            </svg>
-          </div>
-          <div class="card-text">
-            <h3>sirius black cafe</h3>
-            <p>
-              put shit here grrr fuck blajsbdlahfljasdfka;dj meow nya mmrp nya meoooow design philosophy blah blah blah typography blerhhhgh
-            </p>
-          </div>
+        <!-- About Me Section -->
+        <div id="about-me">
+          <p>
+            <span id="greeting-container"></span>
+            I'm a 
+            <strike>
+              <span class="scribble-container">
+                unemployed
+                <span class="scribble"></span>
+              </span>
+            </strike>
+            &nbsp;&nbsp;SELF EMPLOYED web developer &amp; tech tinkerer, I'm currently
+            studying cyber security in TAFE (Australian trade school) and I'm using that as a pathway
+            into university, anticipating a start in Computer Science at UniMelb next semester.
+          </p>
+          <p>
+            Right now I'm currently working on a 
+            <a href="https://placeholder.url" class="highlight-cyan">mod of Street Fighter 3: Second Impact</a>
+            that implements combo trials, tools to make your own mod/romhack of any fighting game supported on the FBNeo emulator, so all Neo Geo games, CPS1, CPS2, CPS3 games, etc, and resources &amp;
+            documentation on how Lua works in FBNeo &amp; FightCade.
+            I'm also working on an online version of a chess game my friend invented! In the past 
+            <a href="https://placeholder.url" class="highlight-cyan">I've worked with</a>
+            companies like CompNow and a bunch of phone repair stores for brief periods of time.
+          </p>
+          <p>
+            If I'm not working on a project, you can find me watching a good film, playing a Megaten,
+            Yakuza or Metal Gear game, hanging out in the city with my friends, or spending time with
+            my cat, <span class="jiji">Jiji</span>.
+          </p>
         </div>
-        <div class="card" id="card-aidin">
-          <div class="tags">
-            <svg class="tag" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="mask-html2">
-                  <rect width="80" height="30" fill="white" rx="3" ry="3" />
-                  <text x="50%" y="50%" fill="black" font-family="Roboto" 
-                    font-size="16" text-anchor="middle" dominant-baseline="middle">
-                    HTML
-                  </text>
-                </mask>
-              </defs>
-              <rect width="80" height="30" fill="cyan" mask="url(#mask-html2)" rx="3" ry="3" />
-            </svg>
-            <svg class="tag" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="mask-css2">
-                  <rect width="80" height="30" fill="white" rx="3" ry="3" />
-                  <text x="50%" y="50%" fill="black" font-family="Roboto" 
-                    font-size="16" text-anchor="middle" dominant-baseline="middle">
-                    CSS
-                  </text>
-                </mask>
-              </defs>
-              <rect width="80" height="30" fill="cyan" mask="url(#mask-css2)" rx="3" ry="3" />
-            </svg>
-            <svg class="tag" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="mask-js2">
-                  <rect width="80" height="30" fill="white" rx="3" ry="3" />
-                  <text x="50%" y="50%" fill="black" font-family="Roboto" 
-                    font-size="16" text-anchor="middle" dominant-baseline="middle">
-                    JS
-                  </text>
-                </mask>
-              </defs>
-              <rect width="80" height="30" fill="cyan" mask="url(#mask-js2)" rx="3" ry="3" />
-            </svg>
+        <!-- Cards Container -->
+        <div id="cards-container">
+          <!-- First Card -->
+          <div class="card" id="card-iframe">
+            <div class="card-date">February 2025</div>
+            <div class="card-content">
+              <div class="card-text">
+                <h3>sirius black cafe</h3>
+                <p>
+                  farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts
+                </p>
+              </div>
+              <div class="tags">
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="35" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">HTML</text>
+                </svg>
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="33" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">CSS</text>
+                </svg>
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="30" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">JS</text>
+                </svg>
+              </div>
+            </div>
           </div>
-          <div class="card-text">
-            <h3>aidin murtha voice actor</h3>
-            <p>
-              hdsfjkdskfsdlfkjsdlkfjdslsfkjsdlsfkjsldkfjsdlsfkjsdl gnfdbgfnkdmzvcjtou[qieu[oreu]]
-            </p>
+          <!-- Second Card -->
+          <div class="card" id="card-aidin">
+            <div class="card-date">April 2025</div>
+            <div class="card-content">
+              <div class="card-text">
+                <h3>aidin murtha voice actor</h3>
+                <p>
+                  <b>client testomonial</b><br />
+                  ziad is really cool and easy to work with and i love the website and it has made me lots of income. in .. cum? wait! hold on guys. i gotta see something real quick
+                </p>
+              </div>
+              <div class="tags">
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="35" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">HTML</text>
+                </svg>
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="35" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">CSS</text>
+                </svg>
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="35" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">JS</text>
+                </svg>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="tags">
-            <svg class="tag" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="mask-lua">
-                  <rect width="80" height="30" fill="white" rx="7" ry="7" />
-                  <text x="50%" y="50%" fill="black" font-family="Roboto" 
-                    font-size="16" text-anchor="middle" dominant-baseline="middle">
-                    Lua
-                  </text>
-                </mask>
-              </defs>
-              <rect width="80" height="30" fill="cyan" mask="url(#mask-lua)" rx="7" ry="7" />
-            </svg>
+          <!-- Third Card -->
+          <div class="card" id="card-romhack">
+            <div class="card-date">March 2024 - <br>Present</div>
+            <div class="card-content">
+              <div class="card-text">
+                <h3>dumb fucking romhack thing</h3>
+                <p>street ? fighter? eugh? whaaaat??????</p>
+              </div>
+              <div class="tags">
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="35" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">LUA</text>
+                </svg>
+              </div>
+            </div>
           </div>
-          <div class="card-text">
-            <h3>dumb fucking romhack thing</h3>
-            <p>
-              street ? fighter? eugh? whaaaat??????
-            </p>
+          <!-- Fourth Card: Placeholder Card -->
+          <div class="card" id="card-new">
+            <div class="card-date">November 2024</div>
+            <div class="card-content">
+              <div class="card-text">
+                <h3>IOLabs Inventory Management System</h3>
+                <p>This is a placeholder card with sample text.</p>
+              </div>
+              <div class="tags">
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="35" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">HTML</text>
+                </svg>
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="35" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">CSS</text>
+                </svg>
+                <svg class="tag" viewBox="0 0 100 35" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="35" rx="15" ry="15"></rect>
+                  <text x="50%" y="50%">JS</text>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Modal for first iframe (sirius black cafe) -->
+    <!-- Bottom Left Icons -->
+    <div id="bottom-icons">
+      <a href="https://github.com/ps-zita" target="_blank">
+        <img class="icon" src="assets/logo.png" alt="Logo" />
+      </a>
+      <a href="https://www.linkedin.com/in/ztaha/" target="_blank">
+        <img class="icon" src="assets/linkedin.png" alt="LinkedIn" />
+      </a>
+    </div>
+    <!-- Modal for sirius black cafe -->
     <div id="iframe-modal">
       <div class="mobile-container">
         <iframe id="modal-iframe" src="https://www.siriusblack.cafe/" title="Mobile Content"></iframe>
         <img src="assets/iphone.png" alt="iPhone Frame" class="overlay" />
       </div>
     </div>
-    
-    <!-- New Modal for aidin murtha voice actor with studio image overlay -->
+    <!-- Modal for aidin murtha voice actor -->
     <div id="aidin-modal">
       <div class="aidin-container">
         <iframe id="aidin-iframe" src="https://ps-zita.github.io/aidinportfolio/" title="Aidin Portfolio"></iframe>
         <img src="assets/studio.png" alt="Studio Frame" class="overlay" />
       </div>
     </div>
-
-    <!-- Grain Overlay -->
-    <div id="grain-overlay">
-      <svg width="100%" height="100%">
-        <filter id="grain">
-          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="noise" />
-          <feColorMatrix type="saturate" values="0" result="desaturatedNoise" />
-          <feBlend in="SourceGraphic" in2="desaturatedNoise" mode="multiply" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain)" opacity="0.15" />
-      </svg>
+    <!-- Modal for imac (romhack card) -->
+    <div id="imac-modal">
+      <div class="imac-modal-container">
+        <div class="imac-display">
+          <video class="imac-video" src="assets/2ivid.mp4" autoplay loop muted playsinline></video>
+          <img class="imac-img" src="assets/imac.png" alt="iMac" />
+        </div>
+      </div>
     </div>
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

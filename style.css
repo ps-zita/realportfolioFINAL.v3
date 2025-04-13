@@ -34,17 +34,20 @@ html, body {
   left: 400px;
   max-width: 350px;
 }
+
 #left-panel h1 {
   font-family: 'Special Gothic Expanded One', sans-serif;
   font-size: 48px;
   margin: 0 0 10px;
 }
+
 #left-panel h3 {
   font-family: 'Special Gothic Condensed One', sans-serif;
   font-size: 24px;
   margin: 10px 0 20px;
   text-transform: lowercase;
 }
+
 #left-panel p {
   font-size: 16px;
   line-height: 1.5;
@@ -52,15 +55,61 @@ html, body {
   margin: 0;
 }
 
+/* Greeting Styles */
+#greeting-container .greeting {
+  color: cyan;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+#greeting-container .greeting::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: cyan;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+#greeting-container .greeting:hover::after {
+  opacity: 1;
+}
+
+/* Scribble Overlay */
+.scribble-container {
+  position: relative;
+  display: inline-block;
+}
+
+.scribble {
+  position: absolute;
+  width: 95px;
+  height: 25px;
+  top: -5%;
+  left: 0;
+  pointer-events: none;
+  background: url('assets/scribble.png') no-repeat center;
+  background-size: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+}
+
 /* Right Panel */
 #right-panel {
   position: absolute;
   top: 100px;
-  left: 50%;
+  right: 10%;
   max-width: 600px;
   padding-right: 40px;
   text-align: left;
 }
+
 #right-panel p {
   font-size: 16px;
   margin-bottom: 20px;
@@ -68,11 +117,24 @@ html, body {
   color: #ccc;
 }
 
+/* About Me Section */
+#about-me {
+  margin-bottom: 40px;
+}
+
+/* Cards Container */
+#cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 110px;
+}
+
 /* Card Styles */
 .card {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 20px;
+  flex-direction: row;
   border: 1px solid transparent;
   border-radius: 16px;
   background: none;
@@ -80,26 +142,46 @@ html, body {
   width: 600px;
   transition: background 0.3s, border-color 0.3s, opacity 0.3s;
   cursor: pointer;
-  position: relative;
-  margin-bottom: 20px;
 }
+
 .card:hover {
   border-color: cyan;
   background: rgba(0, 255, 255, 0.3);
 }
+
+/* Date on the top left */
+.card-date {
+  flex-shrink: 0;
+  width: 150px;
+  font-size: 14px;
+  color: grey;
+  align-self: flex-start;
+  margin-right: 15px;
+  padding: 5px;
+}
+
+/* Card Content (right side) */
+.card-content {
+  flex: 1;
+}
+
+/* Card Text */
 .card-text h3 {
   margin: 0 0 10px;
   color: #ccc;
   transition: color 0.3s;
 }
+
 .card-text p {
   margin: 0;
   color: #ccc;
   transition: color 0.3s;
 }
+
 .card:hover .card-text h3 {
   color: cyan;
 }
+
 .card:hover .card-text p {
   color: #fff;
 }
@@ -107,13 +189,71 @@ html, body {
 /* Tag Styles */
 .tags {
   display: flex;
-  flex-direction: column;
   gap: 5px;
+  margin-top: 10px;
 }
+
 .tag {
+  width: 100px;
+  height: 35px;
+}
+
+.tag rect {
+  fill: #008B8B;
+  stroke: cyan;
+  stroke-width: 1;
+}
+
+.tag text {
+  fill: cyan;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+/* New Card Arrow Styles */
+.card::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: cyan;
+  -webkit-mask: url('assets/arrow.png') center / contain no-repeat;
+          mask: url('assets/arrow.png') center / contain no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.card:hover::after {
+  transform: translate(4px, -4px);
+}
+
+/* iMac Card Styles */
+.imac-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.imac-img {
+  width: 100%;
   display: block;
-  width: 80px;
-  height: 30px;
+}
+
+.imac-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 20px;
 }
 
 /* Grain Overlay */
@@ -127,7 +267,7 @@ html, body {
   z-index: 9999;
 }
 
-/* Cursor Light */
+/* Cursor Light (Spotlight Effect) */
 #cursor-light {
   position: fixed;
   width: 600px;
@@ -149,15 +289,17 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 20000;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 #iframe-modal.show {
   display: block;
   opacity: 1;
 }
+
 .mobile-container {
   position: relative;
   width: 920px;
@@ -165,6 +307,7 @@ html, body {
   margin: 5% auto;
   overflow: hidden;
 }
+
 .mobile-container iframe {
   width: 39%;
   height: 86%;
@@ -181,9 +324,11 @@ html, body {
   opacity: 0;
   overflow: hidden;
 }
+
 .mobile-container iframe::-webkit-scrollbar {
   display: none;
 }
+
 .mobile-container .overlay {
   position: absolute;
   top: 0;
@@ -203,15 +348,17 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 21000;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 #aidin-modal.show {
   display: block;
   opacity: 1;
 }
+
 .aidin-container {
   position: relative;
   width: 65vw;
@@ -220,6 +367,7 @@ html, body {
   margin: 5vh auto;
   overflow: hidden;
 }
+
 .aidin-container iframe {
   position: absolute;
   top: -4%;
@@ -237,9 +385,11 @@ html, body {
   opacity: 0;
   overflow: hidden;
 }
+
 .aidin-container iframe::-webkit-scrollbar {
   display: none;
 }
+
 .aidin-container .overlay {
   position: absolute;
   top: -8vh;
@@ -253,17 +403,129 @@ html, body {
   transition: opacity 0.3s ease;
 }
 
+/* imac-modal specific */
+#imac-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: -10%;
+  width: 110%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 22000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#imac-modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.imac-modal-container {
+  position: relative;
+  width: 90vw;
+  max-width: 1200px;
+  margin: 5vh auto;
+  height: auto;
+}
+
+.imac-display {
+  position: relative;
+  width: 120%;
+}
+
+.imac-video {
+  display: block;
+  top: 12%;
+  left: 29.5%;
+  width: 46%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.imac-display::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('assets/imac.png') no-repeat center top;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 10;
+}
+
 /* Media Query for 1080p displays */
 @media screen and (max-width: 1920px) and (max-height: 1080px) {
-  /* Zoom out the sirius black cafe iframe more */
   .mobile-container iframe {
     transform: scale(0.8);
     width: 44%;
     height: 96%;
   }
-  /* Move the aidin iframe down slightly by 1% (from -4% to -3%) */
   .aidin-container iframe {
     top: -3%;
     height: 68%;
   }
+}
+
+/* Removed arrow from highlighted link (about me text) */
+.highlight-cyan {
+  color: cyan;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.highlight-cyan:hover {
+  color: #fff;
+}
+
+/* Jiji Hover */
+.jiji {
+  color: cyan;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+}
+
+.jiji:hover::after {
+  content: "";
+  position: absolute;
+  top: -140px;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  width: 130px;
+  height: 130px;
+  background: url('assets/jiji.png') no-repeat center center;
+  background-size: cover;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Bottom Left Icons */
+#bottom-icons {
+  position: fixed;
+  bottom: 50px;
+  left: 400px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  z-index: 100;
+}
+
+#bottom-icons .icon {
+  width: 40px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+
+#bottom-icons .icon:hover {
+  filter: grayscale(100%) brightness(0) invert(1);
 }

@@ -1,4 +1,4 @@
-// Update cursor light position on mouse move.
+// Update spotlight (cursor light) position on mousemove.
 window.addEventListener("mousemove", e => {
   const cursorLight = document.getElementById("cursor-light");
   if (cursorLight) {
@@ -7,13 +7,14 @@ window.addEventListener("mousemove", e => {
   }
 });
 
+// Run after DOM content loaded.
 document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("main-content");
-  
-  // --- Functions for sirius black cafe modal ---
+
+  // Modal Elements for sirius black cafe.
   const iframeModal = document.getElementById("iframe-modal");
   const modalIframe = document.getElementById("modal-iframe");
-  
+
   const fadeInModal = () => {
     iframeModal.classList.add("show");
     iframeModal.style.opacity = "0";
@@ -28,17 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
     iframeModal.style.opacity = "0";
     modalIframe.style.opacity = "0";
     setTimeout(() => {
-      modalIframe.src = modalIframe.src; // Reset iframe.
+      modalIframe.src = modalIframe.src; // Reset iframe source.
       iframeModal.classList.remove("show");
       mainContent.classList.remove("hover-active");
       removeHoveredCard();
-      // Reset styles.
+      // Reset opacities.
       iframeModal.style.opacity = "1";
       modalIframe.style.opacity = "1";
     }, 300);
   };
 
-  // --- Functions for aidin murtha modal ---
+  // Modal Elements for aidin murtha voice actor.
   const aidinModal = document.getElementById("aidin-modal");
   const aidinIframe = document.getElementById("aidin-iframe");
 
@@ -56,17 +57,34 @@ document.addEventListener("DOMContentLoaded", () => {
     aidinModal.style.opacity = "0";
     aidinIframe.style.opacity = "0";
     setTimeout(() => {
-      aidinIframe.src = aidinIframe.src; // Reset iframe.
+      aidinIframe.src = aidinIframe.src; // Reset iframe source.
       aidinModal.classList.remove("show");
       mainContent.classList.remove("hover-active");
       removeHoveredCard();
-      // Reset styles.
+      // Reset opacities.
       aidinModal.style.opacity = "1";
       aidinIframe.style.opacity = "1";
     }, 300);
   };
 
-  // Add hover events to each card.
+  // Modal Elements for imac (romhack)
+  const imacModal = document.getElementById("imac-modal");
+  const fadeInImacModal = () => {
+    imacModal.classList.add("show");
+    imacModal.style.opacity = "0";
+    setTimeout(() => {
+      imacModal.style.opacity = "1";
+    }, 10);
+  };
+  const fadeOutImacModal = () => {
+    imacModal.style.opacity = "0";
+    setTimeout(() => {
+      imacModal.classList.remove("show");
+      mainContent.classList.remove("hover-active");
+    }, 300);
+  };
+
+  // Add hover events to all cards.
   const cards = document.querySelectorAll(".card");
   cards.forEach(card => {
     card.addEventListener("mouseenter", () => {
@@ -81,8 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-  
-  // Show sirius black cafe modal on click of its card.
+
+  // Card click events to open modals.
   const firstCard = document.getElementById("card-iframe");
   if (firstCard) {
     firstCard.addEventListener("click", () => {
@@ -90,8 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fadeInModal();
     });
   }
-  
-  // Show aidin murtha modal on click of its card.
+
   const aidinCard = document.getElementById("card-aidin");
   if (aidinCard) {
     aidinCard.addEventListener("click", () => {
@@ -99,8 +116,16 @@ document.addEventListener("DOMContentLoaded", () => {
       fadeInAidinModal();
     });
   }
-  
-  // Fade out modal when clicking outside the iframe element.
+
+  const romhackCard = document.getElementById("card-romhack");
+  if (romhackCard) {
+    romhackCard.addEventListener("click", () => {
+      mainContent.classList.add("hover-active");
+      fadeInImacModal();
+    });
+  }
+
+  // Close modals by clicking outside of the iframe or video.
   iframeModal.addEventListener("click", e => {
     if (e.target !== modalIframe) {
       fadeOutModal();
@@ -111,21 +136,47 @@ document.addEventListener("DOMContentLoaded", () => {
       fadeOutAidinModal();
     }
   });
-  
-  // Helper to remove 'hovering' class from any card.
+  imacModal.addEventListener("click", e => {
+    const imacVideo = document.querySelector(".imac-video");
+    if (e.target !== imacVideo && !imacVideo.contains(e.target)) {
+      fadeOutImacModal();
+    }
+  });
+
+  // Helper function to remove 'hovering' class from cards.
   function removeHoveredCard() {
     document.querySelectorAll(".card.hovering").forEach(card => {
       card.classList.remove("hovering");
     });
   }
 
+  // Optional: Inject CSS into same-origin iframes.
+  function injectCssIntoIframe(iframe) {
+    try {
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      const style = document.createElement("style");
+      style.textContent = "body { background: #fff; }";
+      iframeDoc.head.appendChild(style);
+    } catch (error) {
+      // Ignore cross-origin iframe errors.
+    }
+  }
 
-
-  // Inject CSS into both modals if iframes are same-origin.
   if (modalIframe) {
     injectCssIntoIframe(modalIframe);
   }
   if (aidinIframe) {
     injectCssIntoIframe(aidinIframe);
+  }
+
+  // Randomized Greeting.
+  const container = document.getElementById("greeting-container");
+  const random = Math.random();
+  if (random < 0.5) {
+    // Uzbek greeting with tooltip.
+    container.innerHTML = '<span class="greeting uzbek" data-tooltip="&quot;welcome&quot; in uzbeki">Xush kelibsiz!</span>';
+  } else {
+    // Arabic greeting with tooltip.
+    container.innerHTML = '<span class="greeting arabic" data-tooltip="greeting in arabic">ٱلسَّلَامُ عَلَيْكُمْ</span>';
   }
 });
