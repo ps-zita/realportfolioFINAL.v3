@@ -1,5 +1,5 @@
 // Update spotlight (cursor light) position on mousemove.
-window.addEventListener("mousemove", e => {
+window.addEventListener("mousemove", (e) => {
   const cursorLight = document.getElementById("cursor-light");
   if (cursorLight) {
     cursorLight.style.left = `${e.clientX}px`;
@@ -7,11 +7,24 @@ window.addEventListener("mousemove", e => {
   }
 });
 
-// Run after DOM content loaded.
+// Run after DOM content is loaded.
 document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("main-content");
 
-  // Modal Elements for sirius black cafe.
+  // Randomized Greeting: either Uzbek or Arabic.
+  const greetingContainer = document.getElementById("greeting-container");
+  if (greetingContainer) {
+    const random = Math.random();
+    if (random < 0.5) {
+      // Uzbek greeting with tooltip.
+      greetingContainer.innerHTML = '<span class="greeting uzbek" data-tooltip="&quot;welcome&quot; in uzbeki">Xush kelibsiz!</span>';
+    } else {
+      // Arabic greeting with tooltip.
+      greetingContainer.innerHTML = '<span class="greeting arabic" data-tooltip="greeting in arabic">ٱلسَّلَامُ عَلَيْكُمْ</span>';
+    }
+  }
+
+  /* ------------------ Modal Functions for Sirius Black Cafe ------------------ */
   const iframeModal = document.getElementById("iframe-modal");
   const modalIframe = document.getElementById("modal-iframe");
 
@@ -39,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   };
 
-  // Modal Elements for aidin murtha voice actor.
+  /* ------------------ Modal Functions for Aidin Murtha Voice Actor ------------------ */
   const aidinModal = document.getElementById("aidin-modal");
   const aidinIframe = document.getElementById("aidin-iframe");
 
@@ -67,8 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   };
 
-  // Modal Elements for imac (romhack)
+  /* ------------------ Modal Functions for iMac (Romhack) ------------------ */
   const imacModal = document.getElementById("imac-modal");
+
   const fadeInImacModal = () => {
     imacModal.classList.add("show");
     imacModal.style.opacity = "0";
@@ -76,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
       imacModal.style.opacity = "1";
     }, 10);
   };
+
   const fadeOutImacModal = () => {
     imacModal.style.opacity = "0";
     setTimeout(() => {
@@ -84,9 +99,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   };
 
-  // Add hover events to all cards.
+  /* ------------------ Modal Functions for IOLabs Inventory ------------------ */
+  const ioModal = document.getElementById("io-modal");
+  const ioIframe = document.getElementById("io-iframe");
+
+  const fadeInIOModal = () => {
+    ioModal.classList.add("show");
+    ioModal.style.opacity = "0";
+    ioIframe.style.opacity = "0";
+    setTimeout(() => {
+      ioModal.style.opacity = "1";
+      ioIframe.style.opacity = "1";
+    }, 10);
+  };
+
+  const fadeOutIOModal = () => {
+    ioModal.style.opacity = "0";
+    ioIframe.style.opacity = "0";
+    setTimeout(() => {
+      ioIframe.src = ioIframe.src; // Reset iframe source.
+      ioModal.classList.remove("show");
+      mainContent.classList.remove("hover-active");
+      removeHoveredCard();
+      // Reset opacities.
+      ioModal.style.opacity = "1";
+      ioIframe.style.opacity = "1";
+    }, 300);
+  };
+
+  /* ------------------ Card Hover Effects ------------------ */
   const cards = document.querySelectorAll(".card");
-  cards.forEach(card => {
+  cards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
       mainContent.classList.add("hover-active");
       removeHoveredCard();
@@ -100,10 +143,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Card click events to open modals.
-  const firstCard = document.getElementById("card-iframe");
-  if (firstCard) {
-    firstCard.addEventListener("click", () => {
+  /* ------------------ Card Click Event Listeners ------------------ */
+  const iframeCard = document.getElementById("card-iframe");
+  if (iframeCard) {
+    iframeCard.addEventListener("click", () => {
       mainContent.classList.add("hover-active");
       fadeInModal();
     });
@@ -125,27 +168,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Close modals by clicking outside of the iframe or video.
-  iframeModal.addEventListener("click", e => {
+  const ioCard = document.getElementById("card-io");
+  if (ioCard) {
+    ioCard.addEventListener("click", () => {
+      mainContent.classList.add("hover-active");
+      fadeInIOModal();
+    });
+  }
+
+  /* ------------------ Close Modal Events ------------------ */
+  iframeModal.addEventListener("click", (e) => {
     if (e.target !== modalIframe) {
       fadeOutModal();
     }
   });
-  aidinModal.addEventListener("click", e => {
+
+  aidinModal.addEventListener("click", (e) => {
     if (e.target !== aidinIframe) {
       fadeOutAidinModal();
     }
   });
-  imacModal.addEventListener("click", e => {
+
+  imacModal.addEventListener("click", (e) => {
     const imacVideo = document.querySelector(".imac-video");
     if (e.target !== imacVideo && !imacVideo.contains(e.target)) {
       fadeOutImacModal();
     }
   });
 
-  // Helper function to remove 'hovering' class from cards.
+  ioModal.addEventListener("click", (e) => {
+    if (e.target !== ioIframe) {
+      fadeOutIOModal();
+    }
+  });
+
+  /* ------------------ Helper Functions ------------------ */
   function removeHoveredCard() {
-    document.querySelectorAll(".card.hovering").forEach(card => {
+    document.querySelectorAll(".card.hovering").forEach((card) => {
       card.classList.remove("hovering");
     });
   }
@@ -162,21 +221,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Optionally inject CSS for our modals.
   if (modalIframe) {
     injectCssIntoIframe(modalIframe);
   }
   if (aidinIframe) {
     injectCssIntoIframe(aidinIframe);
   }
-
-  // Randomized Greeting.
-  const container = document.getElementById("greeting-container");
-  const random = Math.random();
-  if (random < 0.5) {
-    // Uzbek greeting with tooltip.
-    container.innerHTML = '<span class="greeting uzbek" data-tooltip="&quot;welcome&quot; in uzbeki">Xush kelibsiz!</span>';
-  } else {
-    // Arabic greeting with tooltip.
-    container.innerHTML = '<span class="greeting arabic" data-tooltip="greeting in arabic">ٱلسَّلَامُ عَلَيْكُمْ</span>';
+  if (ioIframe) {
+    injectCssIntoIframe(ioIframe);
   }
 });

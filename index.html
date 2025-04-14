@@ -5,33 +5,33 @@
     <title>ziad!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <!-- Google Fonts -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
   </head>
   <body>
-    <!-- Cursor Light (Spotlight) -->
     <div id="cursor-light"></div>
     <div id="main-content">
-      <!-- Left Panel -->
       <div id="left-panel">
         <h1>Ziad Taha</h1>
         <h3>uzbeki-egyptian web developer based in melbourne</h3>
         <p>i make websites &amp; romhacks &amp; tools n stuff idk</p>
+        <div id="left-nav">
+          <a href="#about-me">
+            <span class="nav-line"></span>
+            <span class="nav-text">ABOUT</span>
+          </a>
+          <a href="#cards-container">
+            <span class="nav-line"></span>
+            <span class="nav-text">WORK</span>
+          </a>
+          <a href="#commitments">
+            <span class="nav-line"></span>
+            <span class="nav-text">COMMITMENTS</span>
+          </a>
+        </div>
       </div>
-      <!-- Right Panel -->
       <div id="right-panel">
-        <!-- About Me Section -->
         <div id="about-me">
           <p>
             <span id="greeting-container"></span>
@@ -48,29 +48,25 @@
           </p>
           <p>
             Right now I'm currently working on a 
-            <a href="https://placeholder.url" class="highlight-cyan">mod of Street Fighter 3: Second Impact</a>
-            that implements combo trials, tools to make your own mod/romhack of any fighting game supported on the FBNeo emulator, so all Neo Geo games, CPS1, CPS2, CPS3 games, etc, and resources &amp;
-            documentation on how Lua works in FBNeo &amp; FightCade.
-            I'm also working on an online version of a chess game my friend invented! In the past 
-            <a href="https://placeholder.url" class="highlight-cyan">I've worked with</a>
+            <a href="https://github.com/ps-zita/2i-combotrials" class="highlight-cyan">mod of Street Fighter 3: Second Impact</a>
+            that implements combo trials, tools to make your own mod/romhack of any fighting game supported on the FBNeo emulator, so all Neo Geo games, CPS1, CPS2, CPS3 games, etc,
+            and resources &amp; documentation on how Lua works in FBNeo &amp; FightCade. I'm also working on an online version of a chess game my friend invented! In the past I've
+            <a href="https://www.linkedin.com/in/ztaha/" class="highlight-cyan">worked with</a>
             companies like CompNow and a bunch of phone repair stores for brief periods of time.
           </p>
           <p>
-            If I'm not working on a project, you can find me watching a good film, playing a Megaten,
-            Yakuza or Metal Gear game, hanging out in the city with my friends, or spending time with
+            If I'm not working on a project, you can find me watching a good film, playing games, or spending time with
             my cat, <span class="jiji">Jiji</span>.
           </p>
         </div>
-        <!-- Cards Container -->
         <div id="cards-container">
-          <!-- First Card -->
           <div class="card" id="card-iframe">
             <div class="card-date">February 2025</div>
             <div class="card-content">
               <div class="card-text">
                 <h3>sirius black cafe</h3>
                 <p>
-                  farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts farts
+                  farts farts farts farts farts farts farts farts farts farts farts...
                 </p>
               </div>
               <div class="tags">
@@ -89,7 +85,6 @@
               </div>
             </div>
           </div>
-          <!-- Second Card -->
           <div class="card" id="card-aidin">
             <div class="card-date">April 2025</div>
             <div class="card-content">
@@ -97,7 +92,7 @@
                 <h3>aidin murtha voice actor</h3>
                 <p>
                   <b>client testomonial</b><br />
-                  ziad is really cool and easy to work with and i love the website and it has made me lots of income. in .. cum? wait! hold on guys. i gotta see something real quick
+                  ziad is really cool and easy to work with...
                 </p>
               </div>
               <div class="tags">
@@ -116,9 +111,8 @@
               </div>
             </div>
           </div>
-          <!-- Third Card -->
           <div class="card" id="card-romhack">
-            <div class="card-date">March 2024 - <br>Present</div>
+            <div class="card-date">March 2025 - <br />Present</div>
             <div class="card-content">
               <div class="card-text">
                 <h3>dumb fucking romhack thing</h3>
@@ -132,8 +126,7 @@
               </div>
             </div>
           </div>
-          <!-- Fourth Card: Placeholder Card -->
-          <div class="card" id="card-new">
+          <div class="card" id="card-io">
             <div class="card-date">November 2024</div>
             <div class="card-content">
               <div class="card-text">
@@ -157,9 +150,19 @@
             </div>
           </div>
         </div>
+        <div id="commitments">
+          <p>
+            %25 of every website commission sale goes towards charities helping displaced families in Gaza &amp; the occupied West Bank, including recurring charges for hosting &amp; SEO. So far a total of
+            <a class="highlight-cyan" href="#">$40</a>
+            has been donated to the <a href="https://matwproject.org/crisis-and-emergencies/palestine" class="highlight-cyan">MATW Project</a>.
+            <br /><br />
+            If you need any minor changes made to your site, you can contact me and I will update it free of charge.
+            <br /><br />
+            z1ad.taha@hotmail.com | 0476 990 206
+          </p>
+        </div>
       </div>
     </div>
-    <!-- Bottom Left Icons -->
     <div id="bottom-icons">
       <a href="https://github.com/ps-zita" target="_blank">
         <img class="icon" src="assets/logo.png" alt="Logo" />
@@ -168,21 +171,24 @@
         <img class="icon" src="assets/linkedin.png" alt="LinkedIn" />
       </a>
     </div>
-    <!-- Modal for sirius black cafe -->
     <div id="iframe-modal">
       <div class="mobile-container">
         <iframe id="modal-iframe" src="https://www.siriusblack.cafe/" title="Mobile Content"></iframe>
         <img src="assets/iphone.png" alt="iPhone Frame" class="overlay" />
       </div>
     </div>
-    <!-- Modal for aidin murtha voice actor -->
     <div id="aidin-modal">
       <div class="aidin-container">
         <iframe id="aidin-iframe" src="https://ps-zita.github.io/aidinportfolio/" title="Aidin Portfolio"></iframe>
         <img src="assets/studio.png" alt="Studio Frame" class="overlay" />
       </div>
     </div>
-    <!-- Modal for imac (romhack card) -->
+    <div id="io-modal">
+      <div class="io-container">
+        <iframe id="io-iframe" src="https://ps-zita.github.io/iolabsinventory/" title="IOLabs Inventory"></iframe>
+        <img src="assets/studio.png" alt="Studio Frame" class="overlay" />
+      </div>
+    </div>
     <div id="imac-modal">
       <div class="imac-modal-container">
         <div class="imac-display">
