@@ -217,8 +217,7 @@ html, body {
   content: "";
   position: absolute;
   right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  transform: translateZ(-50%);
   width: 12px;
   height: 12px;
   background-color: cyan;
