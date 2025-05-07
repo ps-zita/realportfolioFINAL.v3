@@ -56,6 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
         fadeInImacModal();
       });
     }
+    // For the Ministry Detailing card, open the GitHub page.
+    const projectCard = document.getElementById("card-project");
+    if (projectCard) {
+      projectCard.addEventListener("click", () => {
+        window.open("https://github.com/ps-zita/Ministry-Detailing-Client-Display", "_blank");
+      });
+    }
+  
     // For .jiji, show the cat popup and disable hover effects.
     const jijiElem = document.querySelector(".jiji");
     const catPopup = document.getElementById("cat-popup");
@@ -70,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   } else {
-    // Desktop: attach modal behavior.
+    // Desktop: attach modal behavior to all cards except the Ministry card.
     const iframeCard = document.getElementById("card-iframe");
     if (iframeCard) {
       iframeCard.addEventListener("click", () => {
@@ -100,6 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
       ioCard.addEventListener("click", () => {
         mainContent.classList.add("hover-active");
         fadeInIOModal();
+      });
+    }
+    // For the Ministry Detailing card, open the GitHub page.
+    const projectCard = document.getElementById("card-project");
+    if (projectCard) {
+      projectCard.addEventListener("click", () => {
+        window.open("https://github.com/ps-zita/Ministry-Detailing-Client-Display", "_blank");
       });
     }
   }
